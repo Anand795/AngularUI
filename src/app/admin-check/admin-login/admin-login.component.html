@@ -1,0 +1,45 @@
+<!-- Validating Form Fields -->
+<h1> {{ message }} </h1>
+<div class="box-shadow">
+  <div class="grid">
+
+    <h1 style="margin: 30px;"><b>ADMIN LOGIN</b></h1>
+
+
+    <form [formGroup]="adminLoginForm" (ngSubmit)="adminLogin()" >
+
+      <!-- FOR admin EMAIL -->
+      <mat-form-field class="form-width">
+        <input matInput placeholder="Email" formControlName="email" [(ngModel)]="admin.email" name="adminname">
+
+        <mat-error *ngIf="email.invalid && email.touched" class="has-text-danger">
+          Your email does not look right
+        </mat-error>
+
+      </mat-form-field>
+      <br>
+      <br>
+
+      <!-- FOR admin PASSWORD -->
+      <mat-form-field class="form-width">
+        <input matInput placeholder="Password" formControlName="passwordValidator" [(ngModel)]="admin.password"
+          name="password">
+        <!-- <mat-hint align="start"> Min length should be 6</mat-hint> -->
+        <mat-error *ngIf="passwordValidator.invalid && passwordValidator.touched" class="has-text-danger">
+          Your Password strength is weak
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <br>
+
+      <!-- Submit Button -->
+      <button mat-raised-button [disabled]="adminLoginForm.invalid" color="primary"> Submit </button>
+    </form>
+    <br>
+    <div class="new">
+      <span>New admin? <a href="adminSignUp">Sign Up</a></span>
+    </div>
+    
+  </div>
+
+</div>

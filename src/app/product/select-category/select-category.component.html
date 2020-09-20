@@ -1,0 +1,39 @@
+
+  <!-- Expansion Panel -->
+  <form (ngSubmit)="addCategory()">
+  <div class="example-action-buttons">
+  </div>
+  <mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel (opened)="setStep(0)">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Add Category?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+  
+      <mat-form-field>
+        <mat-label>Category Name</mat-label>
+        <input matInput [(ngModel)]="category.categoryName"  name="categoryName">
+      </mat-form-field>
+      <button mat-raised-button color="primary" class="btnn" (click)="nextStep()">Add</button>s
+    </mat-expansion-panel>
+  </mat-accordion>
+</form>
+  <br>
+
+<form>
+  <mat-form-field appearance="fill" style="width: 340px;">
+    <mat-label>Category</mat-label>
+    <mat-select ngDefaultControl [(ngModel)]="category.categoryName" name="categoryName">
+      <mat-option *ngFor="let cate of cat"  [value]="cate.id" >{{cate.categoryName}}</mat-option>
+      <!-- <mat-option value="option">Football</mat-option>
+      <mat-option value="option">Cricket</mat-option> -->
+    </mat-select>
+    <mat-hint align="end">Choose a Category</mat-hint>
+  </mat-form-field>
+  <br>
+ 
+
+  <button mat-raised-button color="primary" class="btnn">Submit</button>
+  <button mat-raised-button color="warn" class="btnn">Cancel</button>
+</form>

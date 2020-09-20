@@ -1,0 +1,71 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div style="text-align: center">
+    <h1>{{message}}</h1>
+</div>
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <form [formGroup]="registerForm" (ngSubmit)="registerNow()">
+                    <fieldset>
+                        <legend class="text-center">Valid information is required to register. <span class="req"><small>
+                                    required *</small></span></legend>
+
+
+                        <div class="form-group">
+                            <label for="Name"><span class="req">* </span> Name : <small>This will be your login admin
+                                    name</small> </label>
+                            <input required type="text" formControlName="adminnameValidator" name="name" id="name"
+                                [(ngModel)]="admin.adminname" class="form-control phone" maxlength="28"
+                                placeholder="Enter your fullname..." />
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="firstname"><span class="req">* </span> Email : </label>
+                            <input class="form-control" type="text" formControlName="email" name="email" id="email"
+                                required placeholder="Enter valid email address" [(ngModel)]="admin.email"
+                                name="email" />
+                            <mat-error *ngIf="email.invalid && email.touched" class="has-text-danger">
+                                Your email does not look right
+                            </mat-error>
+                            <div id="errFirst"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password"><span class="req">* </span> password : </label>
+                            <input class="form-control" type="password" formControlName="passwordValidator" name="password"
+                                id="pass" placeholder="Enter your password" [(ngModel)]="admin.password"
+                                name="password" />
+                            <mat-error *ngIf="passwordValidator.invalid && passwordValidator.touched"
+                                class="has-text-danger">
+                                Your Password strength is weak
+                            </mat-error>
+                            <div id="errLast"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mobile"><span class="req">* </span> Mobile : </label>
+                            <input class="form-control" required type="text" formControlName="mobile" name="mobile"
+                                id="mobile" placeholder="Enter your Mobile number" [(ngModel)]="admin.mobile" />
+                                <mat-error *ngIf="mobile.invalid && mobile.touched" class="has-text-danger">
+                                    Please Enter Your 10 digit Mobile Number
+                                </mat-error>
+                            <div class="status" id="status"></div>
+                            
+                        </div>
+                        <div class="form-group">
+                            <input class="btn btn-success" type="submit" name="submit_reg" value="Register">
+                        </div>
+                    </fieldset>
+                </form><!-- ends register form -->
+                <!-- second for to fiter admin-->
+            </div><!-- ends col-6 -->
+
+        </div>
+    </div>
+</div>

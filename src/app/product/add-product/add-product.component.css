@@ -1,0 +1,50 @@
+.box-shadow{
+    width: 800px;
+    margin: auto;
+    padding: 50px 0 ;
+}
+
+    
+.grid{
+    padding-top: 40px;
+    padding-bottom: 50px;
+    background-color: whitesmoke;
+    text-align: center;
+    border: 1px solid white;
+    box-shadow: 10px 5px 5px rgb(116, 107, 107);
+    border-radius: 20px;    
+}
+
+h1{
+    letter-spacing: 5px;
+    text-shadow: teal 20px;
+}
+input[name = "one"]{
+   width: 500px;
+}
+.form-width{
+    width: 300px;
+}
+
+.new{
+    text-align: left;
+    padding-left: 100px ;
+}
+.tryf{
+    display: flex;
+    align-items: center;
+    text-align: center  ;
+    justify-content: center;
+    
+}
+.tryff{
+    justify-content: space-between;
+}
+
+.fieldw{
+    width:300px;
+}
+.btnn{
+    width: 90px;
+    margin: 10px;
+}

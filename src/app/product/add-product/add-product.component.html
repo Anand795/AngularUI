@@ -1,0 +1,87 @@
+<!-- Validating Form Fields -->
+
+<div class="box-shadow">
+    <div class="grid">
+
+        <h1 style="margin: 30px;"><b>ADD PRODUCT</b></h1>
+
+
+        <form ngSubmit    >
+
+            <div class="tryf">
+
+                <div class="tryff">
+                    <button mat-raised-button (click)="openDialog()" class="fieldw"> Choose Category</button>
+                    <br><br><br>
+
+                    <mat-form-field appearance="fill" class="fieldw">
+                        <mat-label>Product Name</mat-label>
+                        <input matInput [(ngModel)]="product.productName" name="productName">
+                    </mat-form-field>
+                    <br>
+
+                    <mat-form-field appearance="fill" class="fieldw">
+                        <mat-label>Brand</mat-label>
+                        <input matInput  [(ngModel)]="product.brand" name="brand">
+                    </mat-form-field>
+                    <br>
+
+                    <mat-form-field appearance="fill" class="fieldw">
+                        <mat-label>Size</mat-label>
+                        <input matInput [(ngModel)]="product.size" name="size">
+                    </mat-form-field>
+                    <br>
+
+                    <mat-form-field appearance="fill" class="fieldw">
+                        <mat-label>Color</mat-label>
+                        <input matInput [(ngModel)]="product.color" name="color">
+                    </mat-form-field>
+                    <br>
+
+                </div>
+                <div style="width: 70px;"></div>
+                <div class="tryff">
+                    <mat-form-field appearance="fill" class="fieldw">
+                        <mat-label>Warranty</mat-label>
+                        <input matInput [(ngModel)]="product.warranty" name="warranty">
+                    </mat-form-field>
+                    <br>
+
+                    <mat-form-field appearance="fill" class="fieldw">
+                        <mat-label>Price</mat-label>
+                        <input matInput type="number" class="example-right-align" [(ngModel)]="product.price" name="price">
+                        <span matPrefix>Rs.&nbsp;</span>
+                        <span matSuffix>.00</span>
+                    </mat-form-field>
+                    <br>
+
+                    <mat-form-field hintLabel="Max 10 characters" appearance="fill" class="fieldw">
+                        <mat-label>Product Description</mat-label>
+                        <input matInput #input maxlength="50" placeholder="Ex. Nougat" [(ngModel)]="product.description" name="description">
+                        <mat-hint align="end">{{input.value?.length || 0}}/50</mat-hint>
+                    </mat-form-field>
+                    <br>
+
+                    <mat-form-field appearance="fill" class="fieldw">
+                        <mat-label>Stock Level</mat-label>
+                        <input matInput [(ngModel)]="product.stockLevel" name="stockLevel">
+                    </mat-form-field>
+                    <br>
+
+
+                    <mat-form-field appearance="fill" class="fieldw"    >
+                        <mat-label>Stock Sold</mat-label>
+                        <input matInput [(ngModel)]="product.stockSold" name="stockSold">
+                    </mat-form-field>
+                    <br>
+                </div>
+            </div>
+            <button mat-raised-button color="primary" class="btnn" type="submit" value="submit" (click)="addProduct()" >Submit</button>
+            <button mat-raised-button color="warn" class="btnn">Cancel</button>
+
+        </form>
+
+
+    </div>
+
+</div>

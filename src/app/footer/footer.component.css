@@ -1,0 +1,14 @@
+/* Footer */
+/* TOP Nav BAR */
+.nav-head {
+    color: white;
+    background-color: black;
+    height: 6%;
+    font-size: 100%;
+}
+.f{
+    scroll-margin-bottom: unset;
+}
+.nav-spacer {
+    flex: 1 1 auto;
+}
