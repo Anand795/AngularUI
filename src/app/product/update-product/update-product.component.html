@@ -4,7 +4,7 @@
     <div class="grid">
 
         <h1 style="margin: 30px;"><b>UPDATE PRODUCT</b></h1>
-
+        <p>{{pro}}</p>
 
         <form>
 
@@ -15,7 +15,8 @@
 
                     <mat-form-field appearance="fill" class="fieldw">
                         <mat-label>Product Name</mat-label>
-                        <input matInput  name="productName" [(ngModel)]="pro.productName" >
+                        <input matInput  name="productName" [(ngModel)]="pro.productName" value="{{pro.productName}}"  >
+                        <!-- <input matInput ngModel #productName="ngModel"   name="productName" value="{{pName}}"> -->
                     </mat-form-field>
                     <br>
 

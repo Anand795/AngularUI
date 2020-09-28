@@ -43,7 +43,7 @@ export class RestapiService {
   }
   // to update product --> Get Product by ID
   public getProductById(id:number):Observable<Product>{
-    return this.http.get<Product>("http://localhost:8080/product/getproductbyid/"+id ,{responseType: 'text' as 'json'});
+    return this.http.get<Product>("http://localhost:8080/product/getproductbyid/"+id);
   }
   // delete Product 
   public deleteProduct(id: number){

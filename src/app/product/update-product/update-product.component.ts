@@ -12,17 +12,22 @@ import { SharedService } from '../shared/shared.service'
 export class UpdateProductComponent implements OnInit {
 
   id:number;
-  pro:Product = new Product();
+  pro:Product;
+  pName:String;
   constructor(private service:RestapiService,private route:ActivatedRoute,private shared:SharedService) { 
-   
+    
   }
 
   ngOnInit(): void {
+    this.pro = new Product();
     this.id = this.shared.getId();
-    console.log(this.id);
+    // console.log(this.id);
     this.service.getProductById(this.id).subscribe(data=>{
       this.pro = data;
-      console.log(this.pro);
+
+      console.log(this.pro)
+
+      // console.log(this.pro);
     })
   }
   

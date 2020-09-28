@@ -6,6 +6,7 @@ import { SelectCategoryComponent } from './select-category/select-category.compo
 import { MaterialModule } from '../material/material.module'
 import { MatExpansionModule} from '@angular/material/expansion';
 import { UpdateProductComponent } from './update-product/update-product.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +18,9 @@ import { UpdateProductComponent } from './update-product/update-product.componen
   imports: [
     CommonModule,
     MaterialModule,
-    MatExpansionModule
+    MatExpansionModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ProductModule { }
