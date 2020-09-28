@@ -27,6 +27,11 @@ import {MatDialogModule, MatDialog} from '@angular/material/dialog'
 import {MatDividerModule} from '@angular/material/divider';
 import { MatExpansionModule} from '@angular/material/expansion'
 
+// Data Table
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+
 
 // toastr Module 
 import {ToastrModule} from 'ngx-toastr'
@@ -48,6 +53,10 @@ const Material = [
   MatChipsModule,
   MatFormFieldModule,
   MatExpansionModule,
+  MatTableModule,
+  
+  MatPaginatorModule,
+  MatSortModule,
 
   MatToolbarModule,
   MatIconModule,
@@ -60,6 +69,7 @@ const Material = [
   MatDividerModule, 
   // MatDialog
   ToastrModule.forRoot()
+
 ]
 
 @NgModule({

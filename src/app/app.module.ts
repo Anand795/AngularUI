@@ -16,15 +16,15 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 
 import { AdminCheckModule} from './admin-check/admin-check.module'
-import { ProductModule } from './product/product.module'
-import { from } from 'rxjs';
+import { ProductModule } from './product/product.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

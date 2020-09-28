@@ -32,13 +32,22 @@ export class RestapiService {
   }
 
   // view Product
-  public getProductList():Observable<Product[]>{ 
+  public getProductList(): Observable<Product[]> { 
     return this.http.get<Product[]>("http://localhost:8080/product/getproducts");
   }
+
 
   // Add Product 
   public addProduct(product){
     return this.http.post("http://localhost:8080/product/addproducts",product, {responseType: 'text' as 'json'});
+  }
+  // to update product --> Get Product by ID
+  public getProductById(id:number):Observable<Product>{
+    return this.http.get<Product>("http://localhost:8080/product/getproductbyid/"+id ,{responseType: 'text' as 'json'});
+  }
+  // delete Product 
+  public deleteProduct(id: number){
+    return this.http.delete("http://localhost:8080/product/deleteproducts/"+id, {responseType: 'text' as 'json'});
   }
 
   // GEt category

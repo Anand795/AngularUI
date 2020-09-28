@@ -4,12 +4,13 @@ import { ViewProductComponent } from './view-product/view-product.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { SelectCategoryComponent } from './select-category/select-category.component';
 import { MaterialModule } from '../material/material.module'
-import { MatExpansionModule} from '@angular/material/expansion'
+import { MatExpansionModule} from '@angular/material/expansion';
+import { UpdateProductComponent } from './update-product/update-product.component'
 
 
 
 @NgModule({
-  declarations: [ViewProductComponent, AddProductComponent, SelectCategoryComponent],
+  declarations: [ViewProductComponent, AddProductComponent, SelectCategoryComponent, UpdateProductComponent],
   entryComponents:[
     SelectCategoryComponent
   ],

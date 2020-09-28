@@ -8,6 +8,7 @@ import { AdminRegisterComponent } from './admin-check/admin-register/admin-regis
 import { AdminLoginComponent } from './admin-check/admin-login/admin-login.component';
 import { ViewProductComponent } from './product/view-product/view-product.component';
 import { AddProductComponent } from './product/add-product/add-product.component';
+import { UpdateProductComponent } from './product/update-product/update-product.component';
 
 const routes: Routes = [
 
@@ -47,6 +48,11 @@ const routes: Routes = [
     path:"addProduct",
     component:AddProductComponent
 
+  },
+  // to update product
+  {
+    path:"update/:id",
+    component:UpdateProductComponent
   }
 
 ];
