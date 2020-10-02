@@ -1,4 +1,6 @@
 export class Category{
     id:number;
-    categoryName:String;
+    categoryName: String;
+    
+
 }

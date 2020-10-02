@@ -16,25 +16,25 @@
 
                     <mat-form-field appearance="fill" class="fieldw">
                         <mat-label>Product Name</mat-label>
-                        <input matInput [(ngModel)]="product.productName" name="productName">
+                        <input matInput [(ngModel)]="categoryPro.productName" name="productName">
                     </mat-form-field>
                     <br>
 
                     <mat-form-field appearance="fill" class="fieldw">
                         <mat-label>Brand</mat-label>
-                        <input matInput  [(ngModel)]="product.brand" name="brand">
+                        <input matInput  [(ngModel)]="categoryPro.brand" name="brand">
                     </mat-form-field>
                     <br>
 
                     <mat-form-field appearance="fill" class="fieldw">
                         <mat-label>Size</mat-label>
-                        <input matInput [(ngModel)]="product.size" name="size">
+                        <input matInput [(ngModel)]="categoryPro.size" name="size">
                     </mat-form-field>
                     <br>
 
                     <mat-form-field appearance="fill" class="fieldw">
                         <mat-label>Color</mat-label>
-                        <input matInput [(ngModel)]="product.color" name="color">
+                        <input matInput [(ngModel)]="categoryPro.color" name="color">
                     </mat-form-field>
                     <br>
 
@@ -43,13 +43,13 @@
                 <div class="tryff">
                     <mat-form-field appearance="fill" class="fieldw">
                         <mat-label>Warranty</mat-label>
-                        <input matInput [(ngModel)]="product.warranty" name="warranty">
+                        <input matInput [(ngModel)]="categoryPro.warranty" name="warranty">
                     </mat-form-field>
                     <br>
 
                     <mat-form-field appearance="fill" class="fieldw">
                         <mat-label>Price</mat-label>
-                        <input matInput type="number" class="example-right-align" [(ngModel)]="product.price" name="price">
+                        <input matInput type="number" class="example-right-align" [(ngModel)]="categoryPro.price" name="price">
                         <span matPrefix>Rs.&nbsp;</span>
                         <span matSuffix>.00</span>
                     </mat-form-field>
@@ -57,21 +57,21 @@
 
                     <mat-form-field hintLabel="Max 10 characters" appearance="fill" class="fieldw">
                         <mat-label>Product Description</mat-label>
-                        <input matInput #input maxlength="50" placeholder="Ex. Nougat" [(ngModel)]="product.description" name="description">
+                        <input matInput #input maxlength="50" placeholder="Ex. Nougat" [(ngModel)]="categoryPro.description" name="description">
                         <mat-hint align="end">{{input.value?.length || 0}}/50</mat-hint>
                     </mat-form-field>
                     <br>
 
                     <mat-form-field appearance="fill" class="fieldw">
                         <mat-label>Stock Level</mat-label>
-                        <input matInput [(ngModel)]="product.stockLevel" name="stockLevel">
+                        <input matInput [(ngModel)]="categoryPro.stockLevel" name="stockLevel">
                     </mat-form-field>
                     <br>
 
 
                     <mat-form-field appearance="fill" class="fieldw"    >
                         <mat-label>Stock Sold</mat-label>
-                        <input matInput [(ngModel)]="product.stockSold" name="stockSold">
+                        <input matInput [(ngModel)]="categoryPro.stockSold" name="stockSold">
                     </mat-form-field>
                     <br>
                 </div>

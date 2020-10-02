@@ -1,13 +1,60 @@
-<mat-toolbar color="primary" style="background-color: black;">
-  <mat-toolbar-row>
-    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">code </mat-icon>
-    <span>ALL ONE</span>
-    <span class="example-spacer"></span>
-    <!-- <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
-    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon> -->
-    <a mat-button class="example-icon" routerLink="home">HOME</a>
-    <a mat-button class="example-icon">ABOUT</a>
-    <a mat-button class="example-icon">FEEDBACK</a>
-    <a mat-raised-button class="example-icon" color="accent" routerLink="userLogin">LOGIN</a>
-  </mat-toolbar-row>
-</mat-toolbar>
+
+<div *ngIf="session==='USER' then userblock else elseblock" ></div>
+<ng-template #userblock>
+
+  <mat-toolbar color="primary" style="background-color: black;">
+    <mat-toolbar-row>
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">code </mat-icon>
+      <span>ALL ONE</span>
+      <span class="example-spacer"></span>
+      <!-- <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon> -->
+      <a mat-button class="example-icon" routerLink="home">HOME</a>
+      <a mat-button class="example-icon">ABOUT</a>
+      <a mat-button class="example-icon">FEEDBACK</a>
+      <!-- <a mat-raised-button class="example-icon" color="accent" routerLink="userLogin">LOGIN</a> -->
+      <h2>{{name}}</h2>
+    </mat-toolbar-row>
+    
+  </mat-toolbar>
+</ng-template>
+
+<ng-template #elseblock>
+  <div *ngIf="session==='ADMIN' then adminblock else allblock"></div>
+</ng-template>
+
+<ng-template #adminblock>
+
+  <mat-toolbar color="primary" style="background-color: black;">
+    <mat-toolbar-row>
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">code </mat-icon>
+      <span>ALL ONE</span>
+      <span class="example-spacer"></span>
+      <!-- <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon> -->
+      <a mat-button class="example-icon" routerLink="home">Add Product</a>
+      <a mat-button class="example-icon">View Product</a>
+      <!-- <a mat-raised-button class="example-icon" color="accent" routerLink="userLogin">LOGIN</a> -->
+      <h2>{{name}}</h2>
+    </mat-toolbar-row>
+    
+  </mat-toolbar>
+</ng-template>
+
+<ng-template #allblock>
+
+  <mat-toolbar color="primary" style="background-color: black;">
+    <mat-toolbar-row>
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">code </mat-icon>
+      <span>ALL ONE</span>
+      <span class="example-spacer"></span>
+      <!-- <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon> -->
+      <a mat-button class="example-icon" routerLink="home">HOME</a>
+      <a mat-button class="example-icon">ABOUT</a>
+      <a mat-button class="example-icon">FEEDBACK</a>
+      <a mat-raised-button class="example-icon" color="accent" routerLink="userLogin">LOGIN</a>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+</ng-template>

@@ -3,6 +3,11 @@ import { Category } from '../../bean/Category'
 
 import {MatAccordion} from '@angular/material/expansion';
 import { RestapiService } from 'src/app/restapi.service';
+import { ToastrService } from 'ngx-toastr';
+
+import { CategoryPro } from 'src/app/bean/CategoryPro'
+import {SharedService} from '../shared/shared.service'
+
 @Component({
   selector: 'app-select-category',
   templateUrl: './select-category.component.html',
@@ -15,7 +20,9 @@ export class SelectCategoryComponent implements OnInit {
   category:Category;
   cat:Category[];
 
-  constructor(private service:RestapiService) {
+  categoryPro = new CategoryPro();
+
+  constructor(private service:RestapiService , private toastr:ToastrService ,private shared:SharedService) {
     this.category = new Category();
    }
 
@@ -32,6 +39,8 @@ export class SelectCategoryComponent implements OnInit {
     responce.subscribe(data => 
       console.log(data)  
     )
+    this.toastr.success("Category Added");
+    window.location.reload;
   }
 
   step = 0;
@@ -41,5 +50,14 @@ export class SelectCategoryComponent implements OnInit {
   nextStep(){
     this.step++;
   }
+
+  check(){
+    this.toastr.success("Category Selected Successfully");
+    
+    this.shared.setCID(this.categoryPro.cid)
+
+    console.log(this.categoryPro)
+  }
+
 
 }

@@ -31,6 +31,7 @@ export class ViewProductComponent implements OnInit , AfterViewInit {
   ngAfterViewInit(): void {
      // for sorting
      this.dataSource.sort = this.sort;
+    //  pagination
      this.dataSource.paginator = this.paginator;
   }
 

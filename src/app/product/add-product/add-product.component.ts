@@ -5,8 +5,13 @@ import { RestapiService } from 'src/app/restapi.service';
 import {FormBuilder , FormGroup , Validators} from '@angular/forms';
 
 import { Product } from 'src/app/bean/Product';
+import { CategoryPro } from 'src/app/bean/CategoryPro'
+
 
 import { ToastrService } from 'ngx-toastr';
+import { Category } from 'src/app/bean/Category';
+
+import {SharedService} from '../shared/shared.service'
 
 @Component({
   selector: 'app-add-product',
@@ -15,8 +20,12 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddProductComponent implements OnInit {
 
+  category:string;
   product:Product;
-  constructor(public dialog:MatDialog,private service:RestapiService,private fb : FormBuilder ,private toastr:ToastrService  ) {
+
+  categoryPro = new CategoryPro();
+
+  constructor(public dialog:MatDialog,private service:RestapiService,private fb : FormBuilder ,private toastr:ToastrService,private shared:SharedService ) {
     this.product = new Product();
    }
 
@@ -28,11 +37,16 @@ export class AddProductComponent implements OnInit {
   }
 
   addProduct(){
-    let responce = this.service.addProduct(this.product)
-    console.log(this.product.brand)
+    // this.category = sessionStorage.getItem("check");
+    this.product= this.product;
+    this.categoryPro.cid = this.shared.getCId();
+    console.log(this.categoryPro) 
+    
+    let responce = this.service.addProduct(this.categoryPro)
     responce.subscribe(data => 
       console.log(data)  
     )
+    
   }
 
 

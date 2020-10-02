@@ -4,6 +4,7 @@ import {FormBuilder , FormGroup , Validators} from '@angular/forms';
 import { User } from 'src/app/bean/User';
 
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-login',
@@ -15,10 +16,10 @@ export class UserLoginComponent implements OnInit {
   myForm : FormGroup;
 
   message:any;
- 
+  session:string;
   user:User
 
-  constructor(private service:RestapiService,private fb : FormBuilder ,private toastr:ToastrService ) {
+  constructor(private service:RestapiService,private fb : FormBuilder ,private toastr:ToastrService , private router:Router ) {
     this.user= new User();
    }
 
@@ -38,17 +39,47 @@ export class UserLoginComponent implements OnInit {
     this.myForm.valueChanges.subscribe(console.log)
 
   }
+  
   userLogin(){
     let responce = this.service.userLogin(this.user)
     console.log(this.user.email)
-    responce.subscribe(data => 
-      console.log(data)  
+    responce.subscribe((data) => {
+
+      this.message = data 
+
+      if(this.message != null){
+        if(this.message.email == this.user.email){
+          sessionStorage.setItem("role" , "USER");
+          sessionStorage.setItem("name" , this.message.username)
+          // console.log(sessionStorage.getItem("role"))
+          this.router.navigate(['home']).then(function(){
+            window.location.reload();
+          })
+          this.toastr.success("Login Successfull")
+        }
+      }
+      else{
+        this.toastr.error("Login Failed")
+      }
+      
+    }
     )
-    responce.subscribe((data) => 
-      this.message = data
-    )
-    this.toastr.info(this.message)
+    
+  
+    
+    // console.log(this.session);
+    
+    
+
+    // if (this.session.equals("Successfull")) {
+    //   sessionStorage.setItem("role" , "USER");
+    //   console.log(sessionStorage.getItem("role"))
+    // }
+
+
   }
+  
+  
 
   //Folowing functions are for form valaidations 
 
@@ -62,8 +93,5 @@ export class UserLoginComponent implements OnInit {
     return this.myForm.get('agree');
   }
 
- openToast(){
-  this.toastr.info(this.message)
- }
-
+ 
 }

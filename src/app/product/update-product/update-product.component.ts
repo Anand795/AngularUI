@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/bean/Product';
 import { RestapiService } from 'src/app/restapi.service';
 import { SharedService } from '../shared/shared.service'
@@ -14,7 +15,7 @@ export class UpdateProductComponent implements OnInit {
   id:number;
   pro:Product;
   pName:String;
-  constructor(private service:RestapiService,private route:ActivatedRoute,private shared:SharedService) { 
+  constructor(private service:RestapiService,private router:Router,private shared:SharedService , private toastr: ToastrService) { 
     
   }
 
@@ -30,6 +31,15 @@ export class UpdateProductComponent implements OnInit {
       // console.log(this.pro);
     })
   }
+
+  update(){
+    let responce = this.service.updateProduct(this.pro , this.id)
+    responce.subscribe(data => {
+      this.toastr.success(data.toString())
+      }
+    )
+  }
+  
   
 
 }

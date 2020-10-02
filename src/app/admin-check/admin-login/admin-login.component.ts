@@ -4,6 +4,7 @@ import {FormBuilder , FormGroup , Validators} from '@angular/forms';
 import { Admin } from 'src/app/bean/admin';
 
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-login',
@@ -18,7 +19,7 @@ export class AdminLoginComponent implements OnInit {
  
   admin: Admin
 
-  constructor(private service:RestapiService,private fb : FormBuilder ,private toastr:ToastrService ) {
+  constructor(private service:RestapiService,private fb : FormBuilder ,private toastr:ToastrService  , private router:Router) {
     this.admin= new Admin();
    }
 
@@ -40,15 +41,36 @@ export class AdminLoginComponent implements OnInit {
 
   adminLogin(){
     let responce = this.service.adminLogin(this.admin)
-    console.log(this.admin.email)
     responce.subscribe(data => 
       console.log(data)  
     )
-    responce.subscribe((data) => 
-      this.message = data
-    )
-    this.toastr.info(this.message)
+    responce.subscribe((data) => {
+
+      this.message = data 
+      
+      
+      // console.log(this.message.email)
+      // setting session'
+      if(this.message != null){
+        if(this.message.email == this.admin.email){
+          sessionStorage.setItem("role" , "ADMIN");
+          sessionStorage.setItem("name" , this.message.username)
+          // console.log(sessionStorage.getItem("role"))
+          this.router.navigate(['viewProduct']).then(function(){
+            window.location.reload();
+          })
+          this.toastr.success("Login Successfull")
+        }
+      }
+      else{
+        this.toastr.error("Login Failed")
+      }
+      
+    })
+    
   }
+
+  
 
   //Folowing functions are for form valaidations 
 

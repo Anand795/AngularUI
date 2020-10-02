@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Product } from './bean/Product';
 import { Category } from './bean/Category';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +15,7 @@ export class RestapiService {
   // user login
   public userLogin(user){
     // const headers = new HttpHeaders({Authorization: 'basic' + btoa( username+":"+password)})
-    return this.http.post("http://localhost:8080/user/login" , user ,{ responseType: 'text' as 'json'});
+    return this.http.post("http://localhost:8080/user/login" , user);
   }
   
   // user register 
@@ -24,9 +25,9 @@ export class RestapiService {
 
   // admin login
   public adminLogin(admin){
-    return this.http.post("http://localhost:8080/admin/login" , admin ,{ responseType: 'text' as 'json'});
+    return this.http.post("http://localhost:8080/admin/login" , admin );
   }
-   // user register 
+   // admin register 
    public adminRegister(admin){
     return this.http.post("http://localhost:8080/admin/register",admin, {responseType: 'text' as 'json'});
   }
@@ -38,13 +39,19 @@ export class RestapiService {
 
 
   // Add Product 
-  public addProduct(product){
-    return this.http.post("http://localhost:8080/product/addproducts",product, {responseType: 'text' as 'json'});
+  public addProduct(catpro){
+    return this.http.post("http://localhost:8080/product/addproducts",catpro , {responseType: 'text' as 'json'});
   }
   // to update product --> Get Product by ID
   public getProductById(id:number):Observable<Product>{
     return this.http.get<Product>("http://localhost:8080/product/getproductbyid/"+id);
   }
+
+  // update product
+  public updateProduct(product , id){
+    return this.http.put("http://localhost:8080/product/updateproducts/"+id , product , {responseType: 'text' as 'json'});
+  }
+
   // delete Product 
   public deleteProduct(id: number){
     return this.http.delete("http://localhost:8080/product/deleteproducts/"+id, {responseType: 'text' as 'json'});

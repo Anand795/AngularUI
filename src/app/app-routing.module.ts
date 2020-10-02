@@ -9,13 +9,14 @@ import { AdminLoginComponent } from './admin-check/admin-login/admin-login.compo
 import { ViewProductComponent } from './product/view-product/view-product.component';
 import { AddProductComponent } from './product/add-product/add-product.component';
 import { UpdateProductComponent } from './product/update-product/update-product.component';
+import { CustomerViewProductComponent } from './customer/customer-view-product/customer-view-product.component'
 
 const routes: Routes = [
 
   // user component
   {
     path:"",
-    redirectTo:"addProduct",
+    redirectTo:"home",
     pathMatch:"full"
   },
   {
@@ -53,6 +54,11 @@ const routes: Routes = [
   {
     path:"update/:id",
     component:UpdateProductComponent
+  },
+  // view product by customer
+  {
+    path:"cview",
+    component:CustomerViewProductComponent
   }
 
 ];

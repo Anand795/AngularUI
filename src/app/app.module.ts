@@ -17,7 +17,7 @@ import { HomeComponent } from './home/home.component';
 
 import { AdminCheckModule} from './admin-check/admin-check.module'
 import { ProductModule } from './product/product.module';
-
+import { CustomerModule } from './customer/customer.module'
 
 @NgModule({
   declarations: [
@@ -35,7 +35,8 @@ import { ProductModule } from './product/product.module';
     BrowserAnimationsModule,
 
     AdminCheckModule,
-    ProductModule
+    ProductModule,
+    CustomerModule
 
   ],
   providers: [ RestapiService ],

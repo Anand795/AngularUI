@@ -1,3 +1,5 @@
+import { Category } from './Category';
+
 export class Product{
 
     id:number;
@@ -9,6 +11,6 @@ export class Product{
 	price:String;
 	description:String;
 	stockLevel:String;
-    stockSold:String;
-    
+	stockSold:String;
+	
 }

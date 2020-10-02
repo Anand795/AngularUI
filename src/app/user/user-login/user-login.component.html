@@ -1,12 +1,13 @@
 <!-- Validating Form Fields -->
-<h1> {{ message }} </h1>
+<h1> {{ message }} {{session}} </h1>
+
 <div class="box-shadow">
   <div class="grid">
 
     <h1 style="margin: 30px;"><b>USER LOGIN</b></h1>
 
 
-    <form [formGroup]="myForm" (ngSubmit)="userLogin()" (ngSubmit)="openToast()">
+    <form [formGroup]="myForm" (ngSubmit)="userLogin()">
 
       <!-- FOR USER EMAIL -->
       <mat-form-field class="form-width">
