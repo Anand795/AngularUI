@@ -46,11 +46,11 @@ export class UserLoginComponent implements OnInit {
     responce.subscribe((data) => {
 
       this.message = data 
-
       if(this.message != null){
         if(this.message.email == this.user.email){
           sessionStorage.setItem("role" , "USER");
           sessionStorage.setItem("name" , this.message.username)
+          sessionStorage.setItem("uid" , this.message.userID)
           // console.log(sessionStorage.getItem("role"))
           this.router.navigate(['home']).then(function(){
             window.location.reload();
@@ -61,9 +61,8 @@ export class UserLoginComponent implements OnInit {
       else{
         this.toastr.error("Login Failed")
       }
-      
-    }
-    )
+    })
+    
     
   
     

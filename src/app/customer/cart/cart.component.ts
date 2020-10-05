@@ -7,23 +7,25 @@ import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/bean/Product';
 import { SharedService } from 'src/app/product/shared/shared.service';
 import { RestapiService } from 'src/app/restapi.service';
+import { Cart } from '../../bean/Cart'
 
 @Component({
-  selector: 'app-customer-view-product',
-  templateUrl: './customer-view-product.component.html',
-  styleUrls: ['./customer-view-product.component.css']
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.css']
 })
-export class CustomerViewProductComponent implements OnInit , AfterViewInit {
-
-  badge:string;
+export class CartComponent implements OnInit  , AfterViewInit{
+  
+  badge: string;
 
   dataSource = new MatTableDataSource<Product>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort; 
   
-  constructor(private service:RestapiService,private router:Router,private shared:SharedService,private toastr:ToastrService) { }
-
+  constructor(private service:RestapiService,private router:Router,private shared:SharedService,private toastr:ToastrService) {
+    
+  }
   ngAfterViewInit(): void {
      // for sorting
      this.dataSource.sort = this.sort;
@@ -32,7 +34,7 @@ export class CustomerViewProductComponent implements OnInit , AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.service.getProductList().subscribe( res => {
+    this.service.getCartList(sessionStorage.getItem("uid")).subscribe( res => {
       this.dataSource.data = res as Product[];
     })
 
@@ -42,25 +44,11 @@ export class CustomerViewProductComponent implements OnInit , AfterViewInit {
       console.log("bad"+data)
     })
   }
+  displayedColumns: string[] = ['productName', 'brand', 'desc', 'price'];
 
-  displayedColumns: string[] = ['productName', 'brand', 'desc', 'price' , 'update' , 'delete'];
-
-  // methed for data filter
-  applyFilter(filterValue:String){
+   // methed for data filter
+   applyFilter(filterValue:String){
     this.dataSource.filter = filterValue.trim().toLocaleLowerCase();
-  }
-
-  uid:string;
-  add(pid:number){
-    console.log(sessionStorage.getItem("uid"));
-    console.log(pid);
-    this.uid = sessionStorage.getItem("uid");
-    let responce = this.service.addToCart(this.uid, pid);
-    responce.subscribe(data => {
-      this.toastr.success(data.toString())
-      console.log(data)
-      }
-    )
   }
 
 }

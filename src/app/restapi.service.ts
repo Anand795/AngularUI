@@ -67,4 +67,19 @@ export class RestapiService {
     return this.http.post("http://localhost:8080/product/addcategory",category, {responseType: 'text' as 'json'});
   }
 
+  // Add to cart with particular user
+  public addToCart(uid , pid){ 
+    return this.http.post("http://localhost:8080/customer/addtocart/"+uid, pid, {responseType: 'text' as 'json'});
+  }
+
+  // get cart products based on user
+  public getCartList(id){
+    return this.http.get("http://localhost:8080/customer/getCartBasedOnUser/"+id);
+  }
+
+  // Get badge Value
+  public getBadge(id){
+    return this.http.get("http://localhost:8080/customer/getBadge/"+id);
+  }
+
 }

@@ -10,6 +10,7 @@ import { ViewProductComponent } from './product/view-product/view-product.compon
 import { AddProductComponent } from './product/add-product/add-product.component';
 import { UpdateProductComponent } from './product/update-product/update-product.component';
 import { CustomerViewProductComponent } from './customer/customer-view-product/customer-view-product.component'
+import { CartComponent } from './customer/cart/cart.component';
 
 const routes: Routes = [
 
@@ -59,7 +60,11 @@ const routes: Routes = [
   {
     path:"cview",
     component:CustomerViewProductComponent
-  }
+  },
+  {
+    path:"cart",
+    component:CartComponent
+  },
 
 ];
 
