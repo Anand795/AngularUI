@@ -17,14 +17,14 @@ import { HomeComponent } from './home/home.component';
 
 import { AdminCheckModule} from './admin-check/admin-check.module'
 import { ProductModule } from './product/product.module';
-import { CustomerModule } from './customer/customer.module'
+import { CustomerModule } from './customer/customer.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

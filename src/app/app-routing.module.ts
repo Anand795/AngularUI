@@ -11,6 +11,10 @@ import { AddProductComponent } from './product/add-product/add-product.component
 import { UpdateProductComponent } from './product/update-product/update-product.component';
 import { CustomerViewProductComponent } from './customer/customer-view-product/customer-view-product.component'
 import { CartComponent } from './customer/cart/cart.component';
+import { AddressComponent } from './customer/address/address.component';
+import { OrderReportComponent } from './admin-check/order-report/order-report.component';
+import { CustomerReportComponent } from './customer/customer-report/customer-report.component';
+import { WishlistComponent } from './customer/wishlist/wishlist.component'
 
 const routes: Routes = [
 
@@ -51,21 +55,53 @@ const routes: Routes = [
     component:AddProductComponent
 
   },
-  // to update product
-  {
-    path:"update/:id",
-    component:UpdateProductComponent
-  },
   // view product by customer
   {
     path:"cview",
     component:CustomerViewProductComponent
   },
   {
+    path:"cview/cart",
+    component:CartComponent
+  },
+  // for adress component 
+  {
+    path:"cview/cart/address",
+    component:AddressComponent
+  },
+  {
+    path:"custViewProduct",
+    component:CustomerViewProductComponent
+  },
+  {
     path:"cart",
     component:CartComponent
   },
-
+  {
+    path:"custViewProduct/cart",
+    component:CartComponent
+  },
+  {
+    path:"custViewProduct/cart/address",
+    component:AddressComponent
+  },
+  {
+    path:"cart/address",
+    component:AddressComponent
+  },
+  {
+    path:"report",
+    component:OrderReportComponent
+  },
+  {
+    path:"customerReport",
+    component:CustomerReportComponent
+  },
+  {
+    path:"custViewProduct/wishlist",
+    component:WishlistComponent
+  },
+  
 ];
 
 @NgModule({

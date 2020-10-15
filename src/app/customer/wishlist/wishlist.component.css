@@ -39,11 +39,4 @@ a{
 .mat-elevation-z8{
     flex: 80%;
 }
-.subtotal{
-    flex: 20%;
-    background-color:black;
-    padding: 20px;
-    height: 210px;
-    color: white;
-    border-radius: 8%;
-}
+

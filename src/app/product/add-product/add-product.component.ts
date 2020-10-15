@@ -43,9 +43,10 @@ export class AddProductComponent implements OnInit {
     console.log(this.categoryPro) 
     
     let responce = this.service.addProduct(this.categoryPro)
-    responce.subscribe(data => 
-      console.log(data)  
-    )
+    responce.subscribe(data =>{
+      this.toastr.success("Product Addedd");
+      window.location.reload();
+    })
     
   }
 

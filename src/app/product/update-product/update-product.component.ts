@@ -25,16 +25,14 @@ export class UpdateProductComponent implements OnInit {
     // console.log(this.id);
     this.service.getProductById(this.id).subscribe(data=>{
       this.pro = data;
-
       console.log(this.pro)
-
-      // console.log(this.pro);
     })
   }
 
   update(){
     let responce = this.service.updateProduct(this.pro , this.id)
     responce.subscribe(data => {
+      window.location.reload()
       this.toastr.success(data.toString())
       }
     )

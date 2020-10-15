@@ -5,3 +5,10 @@
   .example-spacer {
     flex: 1 1 auto;
   }
+  a{
+    list-style: none;
+    text-decoration: none;
+  }
+  h2{
+    margin: 10px;
+  }

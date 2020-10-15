@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Cart } from 'src/app/bean/Cart';
 import { Product } from 'src/app/bean/Product';
 import { SharedService } from 'src/app/product/shared/shared.service';
 import { RestapiService } from 'src/app/restapi.service';
@@ -16,6 +17,8 @@ import { RestapiService } from 'src/app/restapi.service';
 export class CustomerViewProductComponent implements OnInit , AfterViewInit {
 
   badge:string;
+  cart = new Cart();
+  uid:string;
 
   dataSource = new MatTableDataSource<Product>();
 
@@ -36,7 +39,7 @@ export class CustomerViewProductComponent implements OnInit , AfterViewInit {
       this.dataSource.data = res as Product[];
     })
 
-    // subscriber to get badge value 
+    // subscriber to get cart badge value 
     this.service.getBadge(sessionStorage.getItem("uid")).subscribe(data => {
       this.badge = data.toString();
       console.log("bad"+data)
@@ -50,17 +53,34 @@ export class CustomerViewProductComponent implements OnInit , AfterViewInit {
     this.dataSource.filter = filterValue.trim().toLocaleLowerCase();
   }
 
-  uid:string;
-  add(pid:number){
-    console.log(sessionStorage.getItem("uid"));
-    console.log(pid);
+  
+  addToCart(pid:number){
     this.uid = sessionStorage.getItem("uid");
+    this.cart.productId=pid;
+    
     let responce = this.service.addToCart(this.uid, pid);
     responce.subscribe(data => {
       this.toastr.success(data.toString())
       console.log(data)
       }
     )
+      window.location.reload();
+  }
+
+  // adding to wishList
+  addToWishlist(pid:number){
+    console.log(sessionStorage.getItem("uid"));
+    console.log(pid);
+    this.uid = sessionStorage.getItem("uid");
+    this.cart.productId=pid;
+    
+    let responce = this.service.addToWishlist(this.uid, pid);
+    responce.subscribe(data => {
+      this.toastr.success(data.toString())
+      console.log(data)
+      }
+    )
+      window.location.reload();
   }
 
 }

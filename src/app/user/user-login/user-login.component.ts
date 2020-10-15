@@ -42,7 +42,6 @@ export class UserLoginComponent implements OnInit {
   
   userLogin(){
     let responce = this.service.userLogin(this.user)
-    console.log(this.user.email)
     responce.subscribe((data) => {
 
       this.message = data 

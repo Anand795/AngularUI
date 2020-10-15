@@ -1,4 +1,4 @@
-export class Cart{
+export class WishList{
     id:number;
     userId:number;
     productId:number;

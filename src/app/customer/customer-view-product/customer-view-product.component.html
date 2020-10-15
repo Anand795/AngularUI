@@ -3,8 +3,8 @@
   <mat-form-field>
     <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Filter">
   </mat-form-field>
-  <mat-icon >favorite</mat-icon>
-  <mat-icon [matBadge]="badge" matBadgeColor="warn" matBadgeOverlap="false" ><a href="cart">shopping_cart</a></mat-icon>
+  <mat-icon routerLink="wishlist">favorite</mat-icon>
+  <mat-icon [matBadge]="badge" matBadgeColor="warn" matBadgeOverlap="false" ><a routerLink="cart">shopping_cart</a></mat-icon>
 </div>
 
 
@@ -41,15 +41,15 @@
     <!-- update Column -->
     <ng-container matColumnDef="update">
       <th mat-header-cell *matHeaderCellDef> Wishlist </th>
-      <td mat-cell *matCellDef="let element"><button mat-raised-button color="primary"><b>ADD TO WISHLIST</b></button>
+      <td mat-cell *matCellDef="let element"><button mat-raised-button color="primary" (click)="addToWishlist(element.id)"><b>ADD TO WISHLIST</b></button>
       </td>
 
     </ng-container>
 
-    <!-- Delete Column -->
+    <!-- Add to cart Column -->
     <ng-container matColumnDef="delete">
-      <th mat-header-cell *matHeaderCellDef> Cart </th>
-      <td mat-cell *matCellDef="let element"><button mat-raised-button color="accent" (click)="add(element.id)"> <B>ADD TO CART</B></button></td>
+      <th mat-header-cell  *matHeaderCellDef> Cart </th>
+      <td mat-cell *matCellDef="let element"><button mat-raised-button color="accent" (click)="addToCart(element.id)"> <B>ADD TO CART</B></button></td>
       <button>dfel</button>
     </ng-container>
 
